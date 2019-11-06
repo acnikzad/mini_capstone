@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     get "/action_figures" => "products#action_dolls"
+    get "/stuffed_dolls" => "products#stuffed_dolls"
  
   end
 
