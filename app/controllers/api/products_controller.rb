@@ -8,22 +8,22 @@ class Api::ProductsController < ApplicationController
   def show
     the_id = params[:id]
     @product =Product.find_by(id: the_id)
-
     render "show.json.jb"
   end
 
   def create
     @product = Product.new(
 
-    name: params[:input_name],
-    price: params[:input_price].to_i,
-    image_url: params[:input_image_url],
-    description: params[:input_description]
+    name: params[:name],
+    price: params[:price].to_i,
+    image_url: params[:image_url],
+    description: params[:description]
     )
-
-    @product.save 
-
-    render "show.json.jb"
+    if @product.save
+      render 'show.json.jb'
+    else
+      render json: {errors: @product.errors.full_messages}, status: :unprocessable_entity
+    end
   end
 
 
@@ -31,7 +31,6 @@ class Api::ProductsController < ApplicationController
   def update
     the_id = params[:id]
     @product = Product.find_by(id: the_id)
-
     @product.name = params[:name],
     @product.price = params[:price],
     @product.image_url = params[:image_url],
@@ -40,7 +39,7 @@ class Api::ProductsController < ApplicationController
     if @product.save
       render 'show.json.jb'
     else
-      render json: {errors: @product.errors.full_messages}
+      render json: {errors: @product.errors.full_messages}, status: :unprocessable_entity
     end
   end
 
