@@ -8,9 +8,17 @@ Rails.application.routes.draw do
   # end
 
   namespace :api do
-    get "/action_figures" => "products#action_dolls"
-    get "/stuffed_dolls" => "products#stuffed_dolls"
- 
+
+    get "/photos" => "products#index"
+
+    get "/photos/:id" => "products#show"
+
+    post "/photos" => "products#create"
+
+    patch "/photos/:id" => "products#update"
+
+    delete "/photos/:id" => "products#destroy"
+
   end
 
 end
