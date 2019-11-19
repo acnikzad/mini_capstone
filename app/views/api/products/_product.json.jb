@@ -2,12 +2,15 @@
     id: product.id,
     name: product.name,
     price: product.price,
-    image_url: product.image_url,
+    image_id: product.image_id,
     description: product.description,
 
       is_discounted: product.is_discounted?,
       tax: product.tax,
-      toal: product.total
+      total: product.total,
+      supplier_id: product.supplier_id,
 
+      supplier_name: product.supplier.name,
+      image_id: product.image_id
 
-    }
+}

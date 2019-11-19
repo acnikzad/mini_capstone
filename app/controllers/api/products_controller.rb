@@ -1,7 +1,7 @@
 class Api::ProductsController < ApplicationController
 
   def index
-    @products = Product.all
+    @products = Product.all  #where("price < ?", "#{params[:search]}")
     render 'index.json.jb'
   end 
 
@@ -16,8 +16,9 @@ class Api::ProductsController < ApplicationController
 
     name: params[:name],
     price: params[:price].to_i,
-    image_url: params[:image_url],
-    description: params[:description]
+    image_id: params[:image_id],
+    description: params[:description],
+    supplier_id: params[:supplier_id],
     )
     if @product.save
       render 'show.json.jb'
@@ -31,10 +32,11 @@ class Api::ProductsController < ApplicationController
   def update
     the_id = params[:id]
     @product = Product.find_by(id: the_id)
-    @product.name = params[:name],
-    @product.price = params[:price],
-    @product.image_url = params[:image_url],
-    @product.description = params[:description]
+    @product.name = params[:name] || @product.name
+    @product.price = params[:price] || @product.price
+    @product.image_id = params[:image_id] || @product.image_id
+    @product.description = params[:description] || @product.description
+    @product.supplier_id = params[:supplier_id] || @product.supplier_id
   
     if @product.save
       render 'show.json.jb'
@@ -52,9 +54,4 @@ class Api::ProductsController < ApplicationController
 
     render "destroy.json.jb"
   end
-
-
-
-
-
 end
