@@ -1,4 +1,5 @@
 class Api::ProductsController < ApplicationController
+  before_action :authenticate_admin
 
   def index
     @products = Product.all  #where("price < ?", "#{params[:search]}")
