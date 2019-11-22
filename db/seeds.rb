@@ -5,3 +5,26 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+category = Category.new(name: "Entertainment")
+category.save
+category = Category.new(name: "Gadgets")
+category.save
+category = Category.new(name: "Clothing")
+
+productcategory = ProductCategory.new(product_id: 19, category_id: 3)
+productcategory.save
+productcategory = ProductCategory.new(product_id: 18, category_id: 2)
+productcategory.save
+productcategory = ProductCategory.new(product_id: 16, category_id: 2)
+productcategory.save
+productcategory = ProductCategory.new(product_id: 1, category_id: 2)
+productcategory.save
+productcategory = ProductCategory.new(product_id: 15, category_id: 3)
+productcategory.save
+productcategory = ProductCategory.new(product_id: 14, category_id: 3)
+productcategory.save
+productcategory = ProductCategory.new(product_id: 13, category_id: 1)
+productcategory.save
+productcategory = ProductCategory.new(product_id: 17, category_id: 1)
+productcategory.save

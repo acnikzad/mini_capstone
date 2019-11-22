@@ -1,6 +1,11 @@
 class Product < ApplicationRecord
 
   belongs_to :supplier
+  has_many :categories
+  has_many :images
+  has_many :orders
+  has_many :product_categories
+  has_many :categories, through: :product_categories
 
     # validates :price, numericality: {less_than_or_equal_to: 100, greater_than_or_equal_to: 1}
     # validates :name, uniqueness: true
