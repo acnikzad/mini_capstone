@@ -6,6 +6,8 @@ class Product < ApplicationRecord
   has_many :orders
   has_many :product_categories
   has_many :categories, through: :product_categories
+  has_many :cartedproducts
+
 
     # validates :price, numericality: {less_than_or_equal_to: 100, greater_than_or_equal_to: 1}
     # validates :name, uniqueness: true

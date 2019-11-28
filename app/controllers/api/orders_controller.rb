@@ -3,7 +3,7 @@ class Api::OrdersController < ApplicationController
 
   def index
     if current_user
-      @orders = Order.a;;
+      @orders = Order.all
         render 'show.json.jb'
     else 
       render 'no_login.json.jb'
