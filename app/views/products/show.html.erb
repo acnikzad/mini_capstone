@@ -5,3 +5,5 @@ Mic check, one two, one two
 <p>Price:<%= @product.price %></p>
 <p>Description:<%= @product.description%></p>
 <p>Supplier: <%= @product.supplier_id %></p>
+
+<a href="/products/<%=@product.id %>" data-method="delete">Delete this product</a>
